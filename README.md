@@ -5,4 +5,5 @@
 - 'kafkaproducer' = microservice app - stream source for Kafka (async message-production in K.topics);
 - 'kafkasparkstr' = microservice app - streaming messages from Kafka topic (Spark Structure Streaming) and writing to another topic on the broker. Capable of working in real time with 'kafkaproducer';
 - 'kafkaconsumer' = microservice app - consumer (listener) of messages from K.topics to write data to NoSQL database (MongoDB).
+___
 Using Java and Spring to development.
