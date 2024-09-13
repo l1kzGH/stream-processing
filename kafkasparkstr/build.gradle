@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+}
+
+group = 'org.likz'
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+java {
+    sourceCompatibility = '1.8'
+    targetCompatibility = '1.8'
+}
+
+shadowJar {
+    zip64 true
+    archiveBaseName.set('spark')
+    archiveVersion.set('1.0')
+    manifest {
+        attributes(
+                'Main-Class': 'likz.KafkaStreaming'
+        )
+    }
+}
+
+dependencies {
+    implementation 'org.apache.spark:spark-core_2.12:3.5.0'
+    implementation 'org.apache.spark:spark-streaming_2.12:3.5.0'
+    implementation 'org.apache.spark:spark-sql_2.12:3.5.0'
+    implementation 'org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.0'
+}
+
+test {
+    useJUnitPlatform()
+}
